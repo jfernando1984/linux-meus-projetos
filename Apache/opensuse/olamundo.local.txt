@@ -1,0 +1,34 @@
+#Configuração HTTP
+<VirtualHost *:80>
+    ServerName olamundo.local
+    DocumentRoot "/srv/www/olamundo.local/public_html"
+
+    <Directory "/srv/www/olamundo.local/public_html">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/apache2/olamundo.local_error.log
+    CustomLog /var/log/apache2/olamundo.local_access.log combined
+</VirtualHost>
+
+
+#Configuração HTTPS
+<VirtualHost *:443>
+    ServerName olamundo.local
+    DocumentRoot "/srv/www/olamundo.local/public_html"
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/apache2/server.crt
+    SSLCertificateKeyFile /etc/ssl/apache2/server.key
+
+    <Directory "/srv/www/olamundo.local/public_html">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/apache2/olamundo.local_error_ssl.log
+    CustomLog /var/log/apache2/olamundo.local_access_ssl.log combined
+</VirtualHost>

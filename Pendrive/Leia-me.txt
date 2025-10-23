@@ -1,0 +1,24 @@
+#Teste de badblock
+sudo badblocks -nsv -c 10240 /dev/sdaX
+
+#Escanear redes Wifi
+sudo iwlist wlp3s0 scan | grep ESSID
+
+#Resetar senhas windows
+cd /mnt/windows/Windows/System32/config/
+sudo chntpw -i SAM
+
+#Iniciar Rescuezilla
+sudo rescuezilla
+
+- Gravação de ISO em pendrive: dd if=/caminho/para/a/imagem.iso of=/dev/sdX bs=4M status=progress
+- Clonagem de discos: dd if=/dev/sda of=/dev/sdb bs=32M status=progress conv=noerror,sync
+- Exemplo de backup de imagem: dd if=/dev/sda of=/home/user/backup.img bs=4M status=progress conv=noerror,sync
+- Agora a restauração: dd if=/home/user/backup.img of=/dev/sda bs=4M status=progress conv=noerror,sync
+- Exemplo de backup de partição: dd if=/dev/sdb1 of=/mnt/backup/sdb1.img bs=4M status=progress conv=noerror,sync
+-Agora a restauração: dd if=/mnt/backup/sdb1.img of=/dev/sdb1
+
+
+Instalar qdiskinfo
+#sudo apt install qdiskinfo
+

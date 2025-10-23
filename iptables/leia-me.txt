@@ -1,0 +1,5 @@
+chmod padrao do root: 640
+Copiar rules.v4 e rules v6: /etc/iptables
+pacote a instalar: iptables-persistent
+comando para atualizar as regras existentes: netfilter-persistent save
+Copiar meufirewall-ipv4.service e meufirewall-ipv6.service: /etc/systemd/system

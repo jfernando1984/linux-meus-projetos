@@ -1,0 +1,13 @@
+[Unit]
+Description=Carregamento das regras iptables no boot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "/usr/sbin/iptables-restore -w  < /etc/iptables/rules.v4"
+ExecStop=/usr/sbin/iptables -F
+ExecStop=/usr/sbin/iptables -X
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

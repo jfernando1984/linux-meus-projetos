@@ -1,0 +1,15 @@
+[Unit]
+Description=Montagem do Google Drive
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount --config=/home/jose/.config/rclone/rclone.conf --vfs-cache-mode full --allow-other gdrive: /home/jose/googledrive
+ExecStop=/usr/bin/fusermount -u /home/jose/googledrive
+Restart=on-failure
+RestartSec=5
+User=jose
+Group=fuse
+
+[Install]
+WantedBy=multi-user.target

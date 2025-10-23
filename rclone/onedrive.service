@@ -1,0 +1,17 @@
+[Unit]
+Description=Montagem do OneDrive
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount --config=/home/jose/.config/rclone/rclone.conf --vfs-cache-mode full --allow-other odrive: /home/jose/onedrive
+ExecStop=/usr/bin/fusermount -u /home/jose/onedrive
+Restart=on-failure
+RestartSec=5
+User=jose
+Group=fuse
+#WorkingDirectory=/home/jose
+
+[Install]
+WantedBy=multi-user.target
+
