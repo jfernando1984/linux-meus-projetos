@@ -1,0 +1,14 @@
+#Meus Aliases
+
+alias atzapp='flatpak update -y && flatpak uninstall --unused'
+alias atzsistema='sudo apt update && sudo apt upgrade -y && sudo apt autoremove'
+alias pesquisa='apt-cache pkgnames | grep'
+alias detalhararquivos='du -ah'
+alias espacolivre='df -h'
+alias listar='ls -lFh'
+alias listaroculto='ls -lFah'
+alias pacote='apt-cache search'
+alias busca='find / -name'
+alias buscaetc='find /etc -name'
+alias buscalib='find /usr/lib -name'
+alias buscabin='find /usr/bin -name'
