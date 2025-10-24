@@ -1,24 +1,54 @@
-#Teste de badblock
-sudo badblocks -nsv -c 10240 /dev/sdaX
+#Mudar senha de Windows
+cd /mnt/windows/Windows/System32/config
+- Listar os usuários: sudo chntpw -l SAM
+- Exemplo de mudança de usuário: sudo chntpw -u jose SAM
 
-#Escanear redes Wifi
-sudo iwlist wlp3s0 scan | grep ESSID
+#Exemplo de teste em SSD NVME
+sudo smartctl -H -i -c -A -l error -l selftest /dev/nvme0n1
 
-#Resetar senhas windows
-cd /mnt/windows/Windows/System32/config/
-sudo chntpw -i SAM
+#Exemplo de teste rápido em discos ATA
+sudo smartctl -H -i -c -A -l error -l selftest -l selective /dev/sda
 
-#Iniciar Rescuezilla
+#Mostrar status dos seus dispositivos de armazenamento
+sudo pkexec gsmartcontrol
+
+#Exemplo de Scan de badblocks sem destrução de dados
+sudo badblocks -nsv -c 10240 /dev/sda1
+
+#Verificação rápida de discos
+sudo QDiskInfo
+
+#Clonagem e backup de discos
+sudo clonezilla
 sudo rescuezilla
 
-- Gravação de ISO em pendrive: dd if=/caminho/para/a/imagem.iso of=/dev/sdX bs=4M status=progress
-- Clonagem de discos: dd if=/dev/sda of=/dev/sdb bs=32M status=progress conv=noerror,sync
-- Exemplo de backup de imagem: dd if=/dev/sda of=/home/user/backup.img bs=4M status=progress conv=noerror,sync
-- Agora a restauração: dd if=/home/user/backup.img of=/dev/sda bs=4M status=progress conv=noerror,sync
-- Exemplo de backup de partição: dd if=/dev/sdb1 of=/mnt/backup/sdb1.img bs=4M status=progress conv=noerror,sync
--Agora a restauração: dd if=/mnt/backup/sdb1.img of=/dev/sdb1
+#Editar partições
+sudo gparted
 
+#TESTES DA PLACA DE VÍDEO
 
-Instalar qdiskinfo
-#sudo apt install qdiskinfo
+#Modo padrão
+glmark2
+
+#Se quiser rodar o teste em _fullscreen:
+glmark2 --fullscreen
+
+#Para rodar somente um checklist rápido de vídeo:
+glmark2 --validate
+
+#E se quiser todos os detalhes do teste, rode no modo _debug:
+glmark2 -d
+
+#Recuperando partições deletadas
+sudo testdisk
+
+#Recuperando arquivos deletados
+sudo photorec
+
+#Atualização do Antivirus
+sudo /usr/local/bin/update-sanesecurity.sh
+sudo freshclam
+
+#Scan do Antivirus
+sudo clamscan -r -v --log=/home/jose/clamav-scan.log --bell /mnt/windows
 
