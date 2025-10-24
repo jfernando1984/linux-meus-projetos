@@ -1,3 +1,4 @@
+#Necessário editar em ~/.bashrc
 #Meus Aliases
 
 alias atzapp='flatpak update -y && flatpak uninstall --unused'
