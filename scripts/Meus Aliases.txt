@@ -1,4 +1,4 @@
-#Necessário editar em ~/.bashrc
+#Necessário editar em ~/.bashrc , copiando e colando todo o conteúdo na linha seguinte após a última linha de código.
 #Meus Aliases
 
 alias atzapp='flatpak update -y && flatpak uninstall --unused'
@@ -13,3 +13,5 @@ alias busca='find / -name'
 alias buscaetc='find /etc -name'
 alias buscalib='find /usr/lib -name'
 alias buscabin='find /usr/bin -name'
+
+# Após editar o arquivo, feche, reinicie o terminal e veja a magia acontecer. Após por exemplo digitar atzsistema , o seu sistema irá efetuar as atualizações de sistema.
